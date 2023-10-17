@@ -173,7 +173,7 @@ public class VariableNamesTheme {
         String url = "адрес ресурса";
 
         // новый идентификатор клиента
-        String newId = "22";
+        String newId = "23";
 
         // кодировка american standard code for information interchange
         String ascii = "Таблица сопастовления числовых кодов";
@@ -184,6 +184,6 @@ public class VariableNamesTheme {
                 "протокол передачи гипертекста = " + http + "\n" +
                 "сокращенный uniform resource locator = " + url + "\n" +
                 "новый идентификатор клиента = " + newId + "\n" +
-                "кодировка american standard code for information interchange" + ascii + "\n");
+                "кодировка american standard code for information interchange = " + ascii + "\n");
     }    
 }
