@@ -26,7 +26,7 @@ public class VariableNamesTheme {
         double interestDeposit = 11.4;
 
         // (переменная хранит символ) &
-        char variableStoresCharacter = 38;
+        char ampersand = 38;
 
         // код ошибки
         String errorCode = "Command not found";
@@ -35,7 +35,7 @@ public class VariableNamesTheme {
         String messageType = "Сообщение обычное!";
 
         // число нулей
-        int numberOfZeros = 3;
+        int numberZeros = 3;
 
         // уникальное число
         int uniqueNumber = 9;
@@ -44,34 +44,34 @@ public class VariableNamesTheme {
         int randomNumber = 62;
 
         // математическое выражение
-         String mathematicalExpression = "7 - 5";
+         String mathExpression = "7 - 5";
 
         // выбор чего-либо
         boolean choosingSomething = false;
 
         //количество очков (в игре)
-        int numberOfPointsInGame = 21;
+        int scoreInGame = 21;
 
         // максимальная длина строки
-        int maximumLineLength = 20;
+        int maxLineLength = 20;
 
         // пункт меню
         String menuItem = "breakfast";
 
         //стоимость кофе на вынос
-        double priceOfCoffeeToGo = 175.50;
+        double priceCoffeeToGo = 175.50;
 
         // дата начала (чего-либо)
         String startDate = "01 Сентября 2023";
 
         // окончание диапазона
-        byte endOfRange = 127;
+        byte endRange = 127;
 
         // полное имя работника месяца
-        String fullNameOfEmployeeOfTheMonth = "Иванов Антон Иванович";
+        String fullNameEmployeeMonth = "Иванов Антон Иванович";
 
         // заголовок электронной книги
-        String titleEBook = "Изучаем Джава";
+        String ebookTitle = "Изучаем Джава";
 
         // размер
         short size = 23351;
@@ -83,10 +83,10 @@ public class VariableNamesTheme {
         int counter = 154;
 
         // путь до файла
-        String pathToFile =  "User/startJava/...";
+        String filePath =  "User/startJava/...";
 
         // количество чисел в каждой строке
-        int numberOfDigitsInEachLine = 3;
+        int numberDigitsInEachLine = 3;
 
         System.out.println("цифра = " + number + "\n" +
                 "сумма чисел = " + sumNumbers + "\n" +
@@ -96,34 +96,34 @@ public class VariableNamesTheme {
                 "вес собаки = " + dogWeight + "\n" +
                 "исходное число = " + originalNumber + "\n" +
                 "процент по вкладу = " + interestDeposit + "\n" +
-                "(переменная хранит символ) & = " + variableStoresCharacter + "\n" +
+                "(переменная хранит символ) & = " + ampersand + "\n" +
                 "код ошибки = " + errorCode + "\n" +
                 "тип сообщения = " + messageType + "\n" +
-                "число нулей = " + numberOfZeros + "\n" +
+                "число нулей = " + numberZeros + "\n" +
                 "уникальное число = " + uniqueNumber + "\n" +
                 "случайное число = " + randomNumber + "\n" +
-                "математическое выражение = " + mathematicalExpression + "\n" +
+                "математическое выражение = " + mathExpression + "\n" +
                 "выбор чего либо = " + choosingSomething + "\n" +
-                "количество очков (в игре) = " + numberOfPointsInGame + "\n" +
-                "максимальная длина строки = " + maximumLineLength + "\n" +
+                "количество очков (в игре) = " + scoreInGame + "\n" +
+                "максимальная длина строки = " + maxLineLength + "\n" +
                 "пункт меню = " +  menuItem + "\n" +
-                "стоимость кофе на вынос = " + priceOfCoffeeToGo + "\n" +
+                "стоимость кофе на вынос = " + priceCoffeeToGo + "\n" +
                 "дата начала (чего-либо) = " + startDate + "\n" +
-                "окончание диапазона = " + endOfRange + "\n" +
-                "полное имя работника месяца = " + fullNameOfEmployeeOfTheMonth + "\n" +
-                "заголовок электронной книги = " + titleEBook + "\n" +
+                "окончание диапазона = " + endRange + "\n" +
+                "полное имя работника месяца = " + fullNameEmployeeMonth + "\n" +
+                "заголовок электронной книги = " + ebookTitle + "\n" +
                 "размер = " + size + "\n" +
                 "вместимость (чего-либо) = " + capacity + "\n" +
                 "счетчик = " + counter + "\n" +
-                "путь до файла = " + pathToFile + "\n" +
-                "количество чисел в каждой строке = " + numberOfDigitsInEachLine + "\n");
+                "путь до файла = " + filePath + "\n" +
+                "количество чисел в каждой строке = " + numberDigitsInEachLine + "\n");
 
         System.out.println("№ 2. boolean-переменные");
         // сотни равны?
-        boolean isHundredsEqual = false;
+        boolean isEqualHundreds = false;
 
         // компьютер выключен?
-        boolean computerIsOn = false;
+        boolean isPcOn = true;
 
         // есть равные цифры?
         boolean hasEqualNumbers = true;
@@ -141,19 +141,19 @@ public class VariableNamesTheme {
         boolean isNew =  true;
 
         // электронная почта действительная?
-        boolean validEmail = true;
+        boolean isEmailValid = true;
 
         //имеются уникальные строки?
         boolean hasUniqueStrings = false;
 
-        System.out.println("сотни равны? = " + isHundredsEqual + "\n" +
-                "компьютер выключен? = " + computerIsOn + "\n" +
+        System.out.println("сотни равны? = " + isEqualHundreds + "\n" +
+                "компьютер выключен? = " + isPcOn + "\n" +
                 "есть равные цифры? = " + hasEqualNumbers + "\n" +
                 "(что-либо) создано? = " + isCreated + "\n" +
                 "(что-либо) пусто? = " + isCreated + "\n" +
                 "(что-либо) активный? = " + isActive + "\n" +
                 "новый = " + isNew + "\n" +
-                "электронная почта действительная? = " + validEmail + "\n" +
+                "электронная почта действительная? = " + isEmailValid + "\n" +
                 "имеются уникальные строки = " + hasUniqueStrings + "\n");
 
         System.out.println("№ 3. Аббревиатуры");
@@ -161,28 +161,28 @@ public class VariableNamesTheme {
         String oldUuid = "21";
 
         // производитель оперативной памяти
-        String dram =  "Gigabyte";
+        String ramPerformance = "Gigabyte";
 
         // емкость жесткого диска
-        String hdd = "3 ТБ";
+        String hddCapacity = "3 ТБ";
 
         // протокол передачи гипертекста
         String http = "HTML";
 
         // сокращенный uniform resource locator
-        String url = "адрес ресурса";
+        String shortenedUrl = "адрес ресурса";
 
         // новый идентификатор клиента
         String newId = "23";
 
         // кодировка american standard code for information interchange
-        String ascii = "Таблица сопастовления числовых кодов";
+        String ascii = "Таблица сопоставления числовых кодов";
 
          System.out.println("старый universally unique identifier = " + oldUuid + "\n" +
-                "производитель оперативной памяти = " + dram + "\n" +
-                "емкость жесткого диска = " + hdd + "\n" +
+                "производитель оперативной памяти = " + ramPerformance + "\n" +
+                "емкость жесткого диска = " + hddCapacity + "\n" +
                 "протокол передачи гипертекста = " + http + "\n" +
-                "сокращенный uniform resource locator = " + url + "\n" +
+                "сокращенный uniform resource locator = " + shortenedUrl + "\n" +
                 "новый идентификатор клиента = " + newId + "\n" +
                 "кодировка american standard code for information interchange = " + ascii + "\n");
     }    
