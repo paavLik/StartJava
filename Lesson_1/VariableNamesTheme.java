@@ -173,7 +173,7 @@ public class VariableNamesTheme {
         String shortenedUrl = "адрес ресурса";
 
         // новый идентификатор клиента
-        String newId = "23";
+        String newId = "22";
 
         // кодировка american standard code for information interchange
         String ascii = "Таблица сопоставления числовых кодов";
