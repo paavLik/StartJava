@@ -26,7 +26,7 @@ public class VariableNamesTheme {
         double interestDeposit = 11.4;
 
         // (переменная хранит символ) &
-        char ampersand = 38;
+        char ampersand = '&';
 
         // код ошибки
         String errorCode = "Command not found";
