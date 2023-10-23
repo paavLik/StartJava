@@ -14,7 +14,7 @@ public class VariableNamesTheme {
         long maxNumber = 9223372036854775807L;
 
         // количество десятков
-        int tensNumber = number / 10;
+        int numberTens = number / 10;
 
         // вес собаки
         int dogWeight = 12;
@@ -47,10 +47,10 @@ public class VariableNamesTheme {
          String mathExpression = "7 - 5";
 
         // выбор чего-либо
-        boolean choosingSomething = false;
+        boolean option = false;
 
         //количество очков (в игре)
-        int scoreInGame = 21;
+        int score= 21;
 
         // максимальная длина строки
         int maxLineLength = 20;
@@ -92,7 +92,7 @@ public class VariableNamesTheme {
                 "сумма чисел = " + sumNumbers + "\n" +
                 "произведение цифр = " + productNumbers + "\n" +
                 "максимальное число = " + maxNumber + "\n" +
-                "количество десяткоа = " + tensNumber + "\n" +
+                "количество десяткоа = " + numberTens + "\n" +
                 "вес собаки = " + dogWeight + "\n" +
                 "исходное число = " + originalNumber + "\n" +
                 "процент по вкладу = " + interestDeposit + "\n" +
@@ -103,8 +103,8 @@ public class VariableNamesTheme {
                 "уникальное число = " + uniqueNumber + "\n" +
                 "случайное число = " + randomNumber + "\n" +
                 "математическое выражение = " + mathExpression + "\n" +
-                "выбор чего либо = " + choosingSomething + "\n" +
-                "количество очков (в игре) = " + scoreInGame + "\n" +
+                "выбор чего либо = " + option + "\n" +
+                "количество очков (в игре) = " + score + "\n" +
                 "максимальная длина строки = " + maxLineLength + "\n" +
                 "пункт меню = " +  menuItem + "\n" +
                 "стоимость кофе на вынос = " + priceCoffeeToGo + "\n" +
@@ -170,10 +170,10 @@ public class VariableNamesTheme {
         String http = "HTML";
 
         // сокращенный uniform resource locator
-        String shortenedUrl = "адрес ресурса";
+        String shortUrl = "адрес ресурса";
 
         // новый идентификатор клиента
-        String newId = "23";
+        String newIdClient = "23";
 
         // кодировка american standard code for information interchange
         String ascii = "Таблица сопоставления числовых кодов";
@@ -182,8 +182,8 @@ public class VariableNamesTheme {
                 "производитель оперативной памяти = " + ramPerformance + "\n" +
                 "емкость жесткого диска = " + hddCapacity + "\n" +
                 "протокол передачи гипертекста = " + http + "\n" +
-                "сокращенный uniform resource locator = " + shortenedUrl + "\n" +
-                "новый идентификатор клиента = " + newId + "\n" +
+                "сокращенный uniform resource locator = " + shortUrl + "\n" +
+                "новый идентификатор клиента = " + newIdClient + "\n" +
                 "кодировка american standard code for information interchange = " + ascii + "\n");
     }    
 }
