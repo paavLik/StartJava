@@ -43,17 +43,17 @@ public class VariablesTheme {
         int maxInt = 2147483647;
         long maxLong = 9223372036854775807l;
         System.out.println("первоначальное значение byte = " + maxByte + "\n" +
-                "значение byte после инкремента на единицу = " + maxByte++ + "\n" +
-                "значение byte после декремента на единицу = " + maxByte-- + "\n" +
+                "значение byte после инкремента на единицу = " + ++maxByte + "\n" +
+                "значение byte после декремента на единицу = " + --maxByte + "\n" +
                 "первоначальное значение short = " + maxShort + "\n" +
-                "значение после short инкремента на единицу = " + maxShort++ + "\n" +
-                "значение после short декремента на единицу = " + maxShort-- + "\n" +
+                "значение после short инкремента на единицу = " + ++maxShort + "\n" +
+                "значение после short декремента на единицу = " + --maxShort + "\n" +
                 "первоначальное значение int = " + maxInt + "\n" +
-                "значение после int инкремента на единицу = " + maxInt++ + "\n" +
-                "значение после int декремента на единицу = " + maxInt-- + "\n" +
+                "значение после int инкремента на единицу = " + ++maxInt + "\n" +
+                "значение после int декремента на единицу = " + --maxInt + "\n" +
                 "первоначальное значение long = " + maxLong + "\n" +
-                "значение после long инкремента на единицу = " + maxLong++ + "\n" +
-                "значение после long декремента на единицу = " + maxLong-- + "\n");
+                "значение после long инкремента на единицу = " + ++maxLong + "\n" +
+                "значение после long декремента на единицу = " + --maxLong + "\n");
 
         System.out.println("5. Перестановка значений переменных");
         int a = 2;
@@ -83,11 +83,11 @@ public class VariablesTheme {
         char atSign = '@';
         char verticalBar = '|';
         char tilde = '~';
-        System.out.println(dollar + " " + (int)dollar + "\n" +
-                asterisk + " " + (int)asterisk + "\n" +
-                atSign + " " + (int)atSign + "\n" +
-                verticalBar + " " + (int)verticalBar + "\n" +
-                tilde + " " + (int)tilde + "\n");
+        System.out.println(dollar + " " + (int) dollar + "\n" +
+                asterisk + " " + (int) asterisk + "\n" +
+                atSign + " " + (int) atSign + "\n" +
+                verticalBar + " " + (int) verticalBar + "\n" +
+                tilde + " " + (int) tilde + "\n");
 
         System.out.println("7. Вывод в консоль ASCII-арт Дюка");
         char slash = '/';
@@ -103,15 +103,15 @@ public class VariablesTheme {
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа");
         int number = 123;
-        int numberHundreds = number / 100;
-        int numberTens = number / 10 % 10;
-        int numberUnits = number % 10;
-        int sum = numberHundreds + numberTens + numberUnits;
-        int product = numberHundreds * numberTens * numberUnits;
+        int hundreds = number / 100;
+        int tens = number / 10 % 10;
+        int units = number % 10;
+        int sum = hundreds + tens + units;
+        int product = hundreds * tens * units;
         System.out.println("Число " + number + " содержит: " + "\n" +
-                "  сотен - " + numberHundreds + "\n" +
-                "  десятков - " + numberTens + "\n" +
-                "  единиц - " + numberUnits + "\n" +
+                "  сотен - " + hundreds + "\n" +
+                "  десятков - " + tens + "\n" +
+                "  единиц - " + units + "\n" +
                 "Сумма его цифр = " + sum + "\n" +
                 "Произведение = " + product + "\n");
 
