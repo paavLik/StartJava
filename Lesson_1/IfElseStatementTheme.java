@@ -165,10 +165,8 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Прибыль за год: " + profitYear + " руб.");
         }
-        }
     }
+}
 
-
-    
 
 
