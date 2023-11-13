@@ -8,9 +8,9 @@ public class WolfTest {
         wolf.setColor("Белый");
 
         System.out.println("Пол волка - " + wolf.getGender() + "\n" + "Кличка - " + 
-        wolf.getNickname() + "\n" +
-        "Вес - " + wolf.getWeight() + " кг. " + "\n" + "Возраст - " + wolf.getAge() + "\n" +
-        "Цвет волка - " + wolf.getColor() + "\n");
+                wolf.getNickname() + "\n" +
+                "Вес - " + wolf.getWeight() + " кг. " + "\n" + "Возраст - " + wolf.getAge() + "\n" +
+                "Цвет волка - " + wolf.getColor() + "\n");
 
         wolf.go();
         wolf.sit();
