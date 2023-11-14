@@ -1,8 +1,8 @@
 public class Calculator {
 
-    private int a;
-    private int b;
-    private char sign;
+    private static int a;
+    private static int b;
+    private static char sign;
 
     public void setA(int a) {
         if (a == 0) {
@@ -28,34 +28,22 @@ public class Calculator {
         }
     }
 
-    public void startCalculation() {
+    public static void calculate() {
         int result = 1;
         switch (sign) {
-            case '+':
-                result = a + b;
-                break;
-            case '-':
-                result = a - b;
-                break;
-            case '*':
-                result = a * b;
-                break;
-            case '/':
-                result = a / b;
-                break;
-            case '^':
+            case '+' -> result = a + b;
+            case '-' -> result = a - b;
+            case '*' -> result = a * b;
+            case '/' -> result = a / b;
+            case '%' -> result = a % b;
+            case '^' -> {
                 for (int i = 1; i <= b; i++) {
                     result *= a;
                 }
-                break;
-            case '%':
-                result = a % b;
-                break;
-            default:
-                System.out.println("Мат. операция не поддерживается. Используйте: +, -, *, /, ^, %");
+            }
+            default -> throw new IllegalArgumentException("Мат. операция может принимать только следующие значения: " +
+                    "'+', '-', '*', '/', '%', '^'");
         }
-        if (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
-            System.out.println(a + " " + sign + " " + b + " = " + result);
-        }
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }

@@ -14,11 +14,10 @@ public class CalculatorTest {
                 calculator.setSign(scanner.next().charAt(0));
                 System.out.println("Введите второе число: ");
                 calculator.setB(scanner.nextInt());
-                calculator.startCalculation();
+                calculator.calculate();
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.next();
         } while (!answer.equals("no"));
-        System.exit(0);
     }
 }
