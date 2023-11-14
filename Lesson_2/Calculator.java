@@ -41,8 +41,10 @@ public class Calculator {
                     result *= a;
                 }
             }
-            default -> throw new IllegalArgumentException("Мат. операция может принимать только следующие значения: " +
-                    "'+', '-', '*', '/', '%', '^'");
+            default -> {
+                System.out.println("Мат. операция не поддерживается. Используйте: +, -, *, /, ^, %");
+                return;
+            }
         }
         System.out.println(a + " " + sign + " " + b + " = " + result);
     }
