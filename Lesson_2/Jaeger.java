@@ -73,7 +73,7 @@ public class Jaeger {
         System.out.println("Атака произведена");
     }
 
-    public void IscheckStatusKaiju() {
+    public void checkStatusKaiju() {
         if (modelName.equals("Crimson Typhoon")) {
             System.out.println("Ликвидирован!");
         } else {

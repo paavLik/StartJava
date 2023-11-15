@@ -13,7 +13,7 @@ public class JaegerTest {
         jaeger1.scanKaiju();
         jaeger1.generateEnergy();
         jaeger1.attack();
-        jaeger1.IscheckStatusKaiju();
+        jaeger1.checkStatusKaiju();
         jaeger1.react();
 
         System.out.println("\nИмя Егеря - " + jaeger2.getModelName() + ", Поколение - " + jaeger2.getMark() + ", Сила - " +
@@ -22,7 +22,7 @@ public class JaegerTest {
         jaeger2.scanKaiju();
         jaeger2.generateEnergy();
         jaeger2.attack();
-        jaeger2.IscheckStatusKaiju();
+        jaeger2.checkStatusKaiju();
         jaeger2.react();
     }
 }
