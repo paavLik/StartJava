@@ -5,10 +5,8 @@ public class JaegerTest {
         jaeger1.setMark("Mark-5");
         jaeger1.setStrength(10);
 
-        Jaeger jaeger2 = new Jaeger("Crimson Typhoon", "Mark-4", 8);
-
-        System.out.println("Имя Егеря - " + jaeger1.getModelName() + ", Поколение - " + jaeger1.getMark() + ", Сила - " +
-                jaeger1.getStrength());
+        System.out.println("Имя Егеря - " + jaeger1.getModelName() + ", Поколение - " + jaeger1.getMark() +
+                ", Сила - " + jaeger1.getStrength());
         System.out.print("Поиск Кадзю - ");
         jaeger1.scanKaiju();
         jaeger1.generateEnergy();
@@ -16,8 +14,10 @@ public class JaegerTest {
         jaeger1.checkStatusKaiju();
         jaeger1.react();
 
-        System.out.println("\nИмя Егеря - " + jaeger2.getModelName() + ", Поколение - " + jaeger2.getMark() + ", Сила - " +
-                jaeger2.getStrength());
+        Jaeger jaeger2 = new Jaeger("Crimson Typhoon", "Mark-4", 8);
+
+        System.out.println("\nИмя Егеря - " + jaeger2.getModelName() + ", Поколение - " + jaeger2.getMark() +
+                ", Сила - " + jaeger2.getStrength());
         System.out.print("Поиск Кадзю - ");
         jaeger2.scanKaiju();
         jaeger2.generateEnergy();

@@ -14,7 +14,7 @@ public class CalculatorTest {
                 calculator.setSign(scanner.next().charAt(0));
                 System.out.println("Введите второе число: ");
                 calculator.setB(scanner.nextInt());
-                Calculator.calculate();
+                calculator.calculate();
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.next();

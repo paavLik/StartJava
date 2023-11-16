@@ -8,33 +8,13 @@ public class Jaeger {
     }
 
     public Jaeger(String modelName, String mark, int strength) {
-        if (modelName.equals("Striker Eureka") || modelName.equals("Crimson Typhoon")) {
-            this.modelName = modelName;
-        } else {
-            System.out.println("Недопустимое имя Егеря. Допуск только для: Striker Eureka и Crimson Typhoon");
-        }
-        if (mark.equals("Mark-4") || mark.equals("Mark-5")) {
-            this.mark = mark;
-        } else {
-            System.out.println("Требование к поколению : Mark-4 или Mark-5");
-        }
-        if (strength >= 8) {
-            this.strength = strength;
-        } else {
-            System.out.println("Егерь слишком слаб");
-        }
+        setModelName(modelName);
+        setMark(mark);
+        setStrength(strength);
     }
 
     public String getModelName() {
         return modelName;
-    }
-
-    public String getMark() {
-        return mark;
-    }
-
-    public int getStrength() {
-        return strength;
     }
 
     public void setModelName(String modelName) {
@@ -45,12 +25,20 @@ public class Jaeger {
         }
     }
 
+    public String getMark() {
+        return mark;
+    }
+
     public void setMark(String mark) {
         if (mark.equals("Mark-4") || mark.equals("Mark-5")) {
             this.mark = mark;
         } else {
             System.out.println("Требование к поколению : Mark-4 или Mark-5");
         }
+    }
+
+    public int getStrength() {
+        return strength;
     }
 
     public void setStrength(int strength) {

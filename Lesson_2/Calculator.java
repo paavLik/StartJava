@@ -1,8 +1,8 @@
 public class Calculator {
 
-    private static int a;
-    private static int b;
-    private static char sign;
+    private int a;
+    private int b;
+    private char sign;
 
     public void setA(int a) {
         if (a == 0) {
@@ -28,7 +28,7 @@ public class Calculator {
         }
     }
 
-    public static void calculate() {
+    public void calculate() {
         int result = 1;
         switch (sign) {
             case '+' -> result = a + b;
