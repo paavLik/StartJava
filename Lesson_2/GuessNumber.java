@@ -1,43 +1,44 @@
 import java.util.Scanner;
 
-public class GuessNumberTest {
+public class GuessNumber {
 
-    private GuessNumber game;
+    private int hiddenNum;
+    private final Player player1;
+    private final Player player2;
+    private Player curPlayer;
+    private final Scanner scanner;
 
-    private Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        GuessNumberTest guessNumberTest = new GuessNumberTest();
-        guessNumberTest.initGame();
-        guessNumberTest.play();
+    public GuessNumber(Player player1, Player player2, Scanner scanner) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.scanner = scanner;
     }
 
-    private void play() {
-        do {
-            game.startGame();
-        } while (isNeedToNewGame());
+    public void startGame() {
+        System.out.println("Да начнется великая битва в Угадай число!!!");
+        curPlayer = player1;
+        hiddenNum = (int) (Math.random() * 100 + 1);
+        inputAndCheckNum();
     }
 
-    private void initGame() {
-        Player player1 = createPlayer(1);
-        Player player2 = createPlayer(2);
-        this.game = new GuessNumber(player1, player2, scanner);
-    }
-
-    private Player createPlayer(int serialNum) {
-        System.out.print("Игрок " + serialNum + " представься ");
-        return new Player(scanner.next());
-    }
-
-    private boolean isNeedToNewGame() {
-        String answer = "yes";
-        while (!answer.equals("no")) {
-            System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-            answer = scanner.next();
-            if (answer.equals("yes")) {
-                return true;
+    private void inputAndCheckNum() {
+        while (true) {
+            System.out.print(curPlayer.getName() + " введи число: ");
+            curPlayer.setNum(scanner.nextInt());
+            System.out.println();
+            if (curPlayer.getNum() > hiddenNum) {
+                System.out.println("Число " + curPlayer.getNum() + " больше того, что загадал компьютер");
+            } else if (curPlayer.getNum() < hiddenNum) {
+                System.out.println("Число " + curPlayer.getNum() + " меньше того, что загадал компьютер");
+            } else {
+                System.out.println(curPlayer.getName() + " Вы победили!");
+                break;
             }
+            changePlayer();
         }
-        return false;
+    }
+
+    private void changePlayer() {
+        curPlayer = curPlayer == player1 ? player2 : player1;
     }
 }
