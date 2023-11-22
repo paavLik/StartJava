@@ -4,42 +4,41 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
-    private GuessNumber game;
+    private static GuessNumber game;
 
-    private Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        GuessNumberTest guessNumberTest = new GuessNumberTest();
-        guessNumberTest.initGame();
-        guessNumberTest.play();
+        initGame();
+        play();
     }
 
-    private void play() {
+    private static void play() {
         do {
-            game.startGame();
-        } while (isNeedToNewGame());
+            game.start();
+        } while (isNext());
     }
 
-    private void initGame() {
+    private static void initGame() {
         Player player1 = createPlayer(1);
         Player player2 = createPlayer(2);
-        this.game = new GuessNumber(player1, player2, scanner);
+        game = new GuessNumber(player1, player2, scanner);
     }
 
-    private Player createPlayer(int serialNum) {
+    private static Player createPlayer(int serialNum) {
         System.out.print("Игрок " + serialNum + " представься ");
         return new Player(scanner.next());
     }
 
-    private boolean isNeedToNewGame() {
-        String answer = "yes";
-        while (!answer.equals("no")) {
+    private static boolean isNext() {
+        String answer;
+        do {
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.next();
             if (answer.equals("yes")) {
                 return true;
             }
-        }
+        } while (!answer.equals("no"));
         return false;
     }
 }

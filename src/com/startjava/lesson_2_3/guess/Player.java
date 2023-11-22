@@ -13,11 +13,11 @@ public class Player {
         return name;
     }
 
-    public void setNum(int playerNum) {
-        this.number = playerNum;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public int getNum() {
+    public int getNumber() {
         return number;
     }
 }
