@@ -5,8 +5,6 @@ import java.util.Scanner;
 
        // Игра Камень-Ножницы-Бумага
 public class RpsGameFormatting {
-
-
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
         Scanner console = new Scanner(System.in);
