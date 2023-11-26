@@ -9,7 +9,6 @@ public class RpsGameFormatting {
     private static final String ROCK = "✊";
     private static final String SCISSORS = "✌️";
     private static final String PAPER = "✋";
-    int position;
 
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
