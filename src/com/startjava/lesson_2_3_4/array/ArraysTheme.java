@@ -1,10 +1,15 @@
 package com.startjava.lesson_2_3_4.array;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class ArraysTheme {
     public static void main(String[] args) {
         swap();
         multiplyArrayElements();
         removeArrayElements();
+        printAlphabetLadder();
+        fillArrayRandomNumbers();
     }
 
     public static void swap() {
@@ -58,6 +63,48 @@ public class ArraysTheme {
         System.out.println("Количество обнуленных ячеек - " + count + "\n");
     }
 
+    public static void printAlphabetLadder() {
+        printTask("\n4. Вывод алфавита лесенкой");
+        char[] arrayChar = new char[26];
+        int length = arrayChar.length;
+        for (int i = 0; i < length; i++) {
+            arrayChar[i] = (char) (i + 'A');
+        }
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(arrayChar[length - 1 - j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void fillArrayRandomNumbers() {
+        printTask("\n5. Заполнение массива уникальными числами");
+        int[] array = new int[30];
+        int length = array.length;
+        for (int i = 0; i < length; i++) {
+            int tmp;
+            do {
+                tmp = getIntFromRange(60, 99);
+            } while (isExistArray(tmp, array));
+            array[i] = tmp;
+        }
+        for (int i = length - 2; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int tmp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = tmp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
+    }
+
+    static int getIntFromRange(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
+    }
 
     private static void printTask(String name) {
         System.out.println(name);
@@ -79,5 +126,12 @@ public class ArraysTheme {
             System.out.printf("%.3f ", arr[i]);
         }
         System.out.println();
+    }
+
+    private static boolean isExistArray(int numbers, int[] intArr) {
+        for (int i : intArr) {
+            if (i == numbers) return true;
+        }
+        return false;
     }
 }
