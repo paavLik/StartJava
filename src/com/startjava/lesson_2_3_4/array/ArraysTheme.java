@@ -17,7 +17,7 @@ public class ArraysTheme {
         int[] reversArr = {1, 7, 4, 5, 2, 6, 3};
         print("   До реверса: ", reversArr);
         int length = reversArr.length;
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i < length; i++) {
             int saveArr = reversArr[i];
             reversArr[i] = reversArr[--length];
             reversArr[length] = saveArr;
