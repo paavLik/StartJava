@@ -6,102 +6,102 @@ import java.util.Random;
 public class ArraysTheme {
     public static void main(String[] args) {
         swap();
-        multiplyArrayElements();
-        removeArrayElements();
+        multiplyElements();
+        removeElements();
         printAlphabetLadder();
-        fillArrayRandomNumbers();
+        fillRandomNumbers();
     }
 
-    public static void swap() {
+    private static void swap() {
         printTask("1. Реверс значений массива");
-        int[] intArray = {1, 7, 4, 5, 2, 6, 3};
-        printArray("   До реверса: ", intArray);
-        int length = intArray.length; // 7
+        int[] reversArr = {1, 7, 4, 5, 2, 6, 3};
+        print("   До реверса: ", reversArr);
+        int length = reversArr.length;
         for (int i = 0; i < length / 2; i++) {
-            int saveArr = intArray[i];
-            intArray[i] = intArray[length - 1 - i];
-            intArray[length - 1 - i] = saveArr;
+            int saveArr = reversArr[i];
+            reversArr[i] = reversArr[--length];
+            reversArr[length] = saveArr;
         }
-        printArray("После реверса: ", intArray);
+        print("После реверса: ", reversArr);
     }
 
-    public static void multiplyArrayElements() {
+    private static void multiplyElements() {
         printTask("\n2. Произведение элементов массива");
-        int[] array = new int[10];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i;
+        int[] multiplicationArr = new int[10];
+        for (int i = 0; i < multiplicationArr.length; i++) {
+            multiplicationArr[i] = i;
         }
+
         int result = 1;
-        StringBuilder out = new StringBuilder();
-        for (int i = 1; i < array.length - 1; i++) {
-            result *= array[i];
-            out.append((i == 1) ? array[i] : " * " + array[i]);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < multiplicationArr.length - 1; i++) {
+            result *= multiplicationArr[i];
+            sb.append((i == 1) ? multiplicationArr[i] : " * " + multiplicationArr[i]);
         }
-        System.out.println(out + " = " + result);
+        System.out.println(sb + " = " + result);
     }
 
-    public static void removeArrayElements() {
+    private static void removeElements() {
         printTask("\n3. Удаление элементов массива");
-        double[] doubleArray = new double[15];
-        int len = doubleArray.length;
-        for (int i = 0; i < len; i++) {
-            doubleArray[i] = Math.random();
+        double[] deletionArr = new double[15];
+        int length = deletionArr.length;
+        for (int i = 0; i < length; i++) {
+            deletionArr[i] = Math.random();
         }
         System.out.println("Исходный массив: ");
-        showArray(doubleArray);
-        double middleCell = doubleArray[len / 2];
+        print(deletionArr);
+        double middleCell = deletionArr[length / 2];
         int count = 0;
-        for (int i = 0; i < len; i++) {
-            if (middleCell < doubleArray[i]) {
-                doubleArray[i] = 0;
+        for (int i = 0; i < length; i++) {
+            if (deletionArr[i] > middleCell) {
+                deletionArr[i] = 0;
                 count++;
             }
         }
-        System.out.println();
-        System.out.println("Измененный массив: ");
-        showArray(doubleArray);
-        System.out.println("Количество обнуленных ячеек - " + count + "\n");
+        System.out.println("\nИзмененный массив: ");
+        print(deletionArr);
+        System.out.println("Количество обнуленных ячеек - " + count);
     }
 
-    public static void printAlphabetLadder() {
+    private static void printAlphabetLadder() {
         printTask("\n4. Вывод алфавита лесенкой");
-        char[] arrayChar = new char[26];
-        int length = arrayChar.length;
+        char[] alphabetArr = new char[26];
+        int length = alphabetArr.length;
         for (int i = 0; i < length; i++) {
-            arrayChar[i] = (char) (i + 'A');
+            alphabetArr[i] = (char) (i + 'A');
         }
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(arrayChar[length - 1 - j]);
+                System.out.print(alphabetArr[length - 1 - j]);
             }
             System.out.println();
         }
     }
 
-    public static void fillArrayRandomNumbers() {
+    private static void fillRandomNumbers() {
         printTask("\n5. Заполнение массива уникальными числами");
-        int[] array = new int[30];
-        int length = array.length;
+        int[] uniqueArr = new int[30];
+        int length = uniqueArr.length;
         for (int i = 0; i < length; i++) {
-            int tmp;
+            int saveNumber;
             do {
-                tmp = getIntFromRange(60, 99);
-            } while (isExistArray(tmp, array));
-            array[i] = tmp;
+                saveNumber = getIntFromRange(60, 99);
+            } while (isExistArray(saveNumber, uniqueArr));
+            uniqueArr[i] = saveNumber;
         }
         for (int i = length - 2; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
-                if (array[j] > array[j + 1]) {
-                    int tmp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = tmp;
+                if (uniqueArr[j] > uniqueArr[j + 1]) {
+                    int tmp = uniqueArr[j];
+                    uniqueArr[j] = uniqueArr[j + 1];
+                    uniqueArr[j + 1] = tmp;
                 }
             }
         }
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(uniqueArr));
     }
 
-    static int getIntFromRange(int min, int max) {
+    private static int getIntFromRange(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min + 1) + min;
     }
@@ -110,7 +110,7 @@ public class ArraysTheme {
         System.out.println(name);
     }
 
-    private static void printArray(String description, int[] arr) {
+    private static void print(String description, int[] arr) {
         System.out.print(description);
         for (int e : arr) {
             System.out.print(e + " ");
@@ -118,7 +118,7 @@ public class ArraysTheme {
         System.out.println();
     }
 
-    private static void showArray(double[] arr) {
+    private static void print(double[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (i == 8) {
                 System.out.println();
