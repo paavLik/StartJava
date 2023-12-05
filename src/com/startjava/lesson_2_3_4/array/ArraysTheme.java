@@ -80,14 +80,14 @@ public class ArraysTheme {
 
     private static void fillUniqueNumbers() {
         System.out.println("\n5. Заполнение массива уникальными числами");
-        int[] uniqueNumbers = new int[30];// создали массив размером 30 целых чисел
-        int length = uniqueNumbers.length; // обьявили длинну этого массива
-        for (int i = 0; i < length; i++) { // запускаем цикл для заполнения
-            int randomNumber; // объявляем переменную для хранения рандомного числа
-            do { // входим в цикл
-                randomNumber = generateRandomNumber(60, 99); // кладем сгенерированное число из полуинтервала
-            } while (isUniqueNumber(randomNumber, uniqueNumbers)); // сравниваем с помощью метода сгенерированное число из интервала с каждым числом массива
-            uniqueNumbers[i] = randomNumber; // кладем в ячейку рандомное число из полуинтервала
+        int[] uniqueNumbers = new int[30];
+        int length = uniqueNumbers.length;
+        for (int i = 0; i < length; i++) {
+            int randomNumber;
+            do {
+                randomNumber = generateRandomNumber(60, 99);
+            } while (isUniqueNumber(randomNumber, uniqueNumbers));
+            uniqueNumbers[i] = randomNumber;
         }
         for (int i = length - 2; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
