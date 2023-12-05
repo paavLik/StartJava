@@ -98,7 +98,12 @@ public class ArraysTheme {
                 }
             }
         }
-        System.out.println(Arrays.toString(uniqueNumbers));
+        for (int i = 0; i < length; i++) {
+            if (i % 10 == 0 && i != 0) {
+                System.out.println();
+            }
+            System.out.print(uniqueNumbers[i] + " ");
+        }
     }
 
     private static int generateRandomNumber(int min, int max) {
