@@ -14,15 +14,15 @@ public class ArraysTheme {
 
     private static void swap() {
         System.out.println("1. Реверс значений массива");
-        int[] revers = {1, 7, 4, 5, 2, 6, 3};
-        print("   До реверса: ", revers);
-        int length = revers.length;
+        int[] reverseNumbers = {1, 7, 4, 5, 2, 6, 3};
+        print("   До реверса: ", reverseNumbers);
+        int length = reverseNumbers.length;
         for (int i = 0; i < length; i++) {
-            int saveArr = revers[i];
-            revers[i] = revers[--length];
-            revers[length] = saveArr;
+            int saveArr = reverseNumbers[i];
+            reverseNumbers[i] = reverseNumbers[--length];
+            reverseNumbers[length] = saveArr;
         }
-        print("После реверса: ", revers);
+        print("После реверса: ", reverseNumbers);
     }
 
     private static void multiplyElements() {
@@ -131,7 +131,7 @@ public class ArraysTheme {
 
     private static boolean isUniqueNumber(int numbers, int[] arr) {
         for (int i : arr) {
-            if (i == numbers) return true;
+            if (i == numbers) return false;
         }
         return false;
     }
