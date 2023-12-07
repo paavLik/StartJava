@@ -25,15 +25,15 @@ public class GuessNumberTest {
         game = new GuessNumber(player1, player2, scanner);
     }
 
-    private static Player createPlayer(int serialNum) {
-        System.out.print("Игрок " + serialNum + " представься ");
+    private static Player createPlayer(int serialNumber) {
+        System.out.print("Игрок " + serialNumber + " представься ");
         return new Player(scanner.next());
     }
 
     private static boolean isNext() {
         String answer;
         do {
-            System.out.println("Хотите продолжить вычисления? [yes/no]: ");
+            System.out.println("Хотите продолжить игру? [yes/no]: ");
             answer = scanner.next();
             if (answer.equals("yes")) {
                 return true;
