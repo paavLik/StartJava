@@ -86,7 +86,7 @@ public class ArraysTheme {
             int randomNumber;
             do {
                 randomNumber = generateRandomNumber(60, 99);
-            } while (isUniqueNumber(randomNumber, uniqueNumbers));
+            } while (!isUniqueNumber(randomNumber, uniqueNumbers));
             uniqueNumbers[i] = randomNumber;
         }
         for (int i = length - 2; i >= 0; i--) {
@@ -133,6 +133,6 @@ public class ArraysTheme {
         for (int i : arr) {
             if (i == numbers) return false;
         }
-        return false;
+        return true;
     }
 }

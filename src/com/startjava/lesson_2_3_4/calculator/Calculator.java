@@ -2,52 +2,31 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    private int a;
-    private int b;
-    private char sign;
-
-    public void setA(int a) {
-        if (a == 0) {
-            System.out.println("Введите число отличное от нуля");
-        } else {
-            this.a = a;
+    public static double calculate(String expression) {
+        String[] partsExpression = expression.split(" ");
+        checkExpression(partsExpression);
+        double result = 1;
+        int a = Integer.parseInt(partsExpression[0]);
+        int b = Integer.parseInt(partsExpression[2]);
+        String sign = partsExpression[1];
+        switch (partsExpression[1]) {
+            case "+" -> result = a + b;
+            case "-" -> result = a - b;
+            case "*" -> result = a * b;
+            case "/" -> result = (double) a / (double) b;
+            case "%" -> result = a % b;
+            case "^" -> result = (int) Math.pow(a, b);
+            default -> System.out.println("Ошибка: знак " + sign + " не поддерживается");
         }
+        return result;
     }
 
-    public void setB(int b) {
-        if (b == 0) {
-            System.out.println("Введите число отличное от нуля");
-        } else {
-            this.b = b;
+    public static void checkExpression(String[] expression) {
+        if (expression.length != 3) {
+            throw new IllegalArgumentException("Ошибка! Неверное кол-во пробелов между символами!");
         }
-    }
-
-    public void setSign(char sign) {
-        if (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
-            this.sign = sign;
-        } else {
-            System.out.println("Некорректная мат.операция");
+        if (Integer.parseInt(expression[0]) < 0 || Integer.parseInt(expression[2]) < 0) {
+            throw new IllegalArgumentException("Ошибка! Вы ввели отрицательное число!");
         }
-    }
-
-    public void calculate() {
-        int result = 1;
-        switch (sign) {
-            case '+' -> result = a + b;
-            case '-' -> result = a - b;
-            case '*' -> result = a * b;
-            case '/' -> result = a / b;
-            case '%' -> result = a % b;
-            case '^' -> {
-                for (int i = 1; i <= b; i++) {
-                    result *= a;
-                }
-            }
-            default -> {
-                System.out.println("Мат. операция не поддерживается. Используйте: +, -, *, /, ^, %");
-                return;
-            }
-        }
-        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
