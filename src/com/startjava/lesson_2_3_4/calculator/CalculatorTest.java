@@ -3,6 +3,7 @@ package com.startjava.lesson_2_3_4.calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
@@ -11,9 +12,8 @@ public class CalculatorTest {
             if (answer.equals("yes")) {
                 System.out.println("Введите математическое выражение: ");
                 String expression = scanner.nextLine();
-                double result;
                 try {
-                    result = Calculator.calculate(expression);
+                    double result = Calculator.calculate(expression);
                     printResult(expression, result);
                 } catch (RuntimeException e) {
                     System.out.println(e.getMessage());

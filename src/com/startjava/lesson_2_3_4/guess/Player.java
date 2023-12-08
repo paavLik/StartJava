@@ -4,41 +4,41 @@ import java.util.Arrays;
 
 public class Player {
 
+    private final int[] numbers = new int[GuessNumber.numberAttempts];
     private final String name;
     private int attempts;
-    private final int[] number = new int[GuessNumber.numberAttempts];
+
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public int getNumber(int attempts) {
-        return number[attempts];
     }
 
     public int getAttempts() {
         return attempts;
     }
 
-    public void setAttempts(int attempts) {
-        this.attempts = attempts;
-    }
-
     public String getName() {
         return name;
     }
 
-    public int[] getNum() {
-        return Arrays.copyOf(number, attempts);
+    public int getLastInputNumber() {
+        if (attempts == 0) {
+            throw new IllegalStateException("Попыток еще не было!");
+        }
+        return numbers[attempts - 1];
     }
 
-    public void addNumber(int num) {
-        number[attempts] = num;
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, attempts);
+    }
+
+    public void addNumber(int number) {
+        numbers[attempts] = number;
         attempts++;
     }
 
-    public void resetNumber() {
-        Arrays.fill(number, 0, attempts, 0);
+    public void clear() {
+        Arrays.fill(numbers, 0, numbers.length, 0);
+        attempts = 0;
     }
-
 }
