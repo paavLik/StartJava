@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class GuessNumber {
 
     public static final int numberAttempts = 10;
-    private int hiddenNumber;
     private final Player player1;
     private final Player player2;
-    private Player curPlayer;
     private final Scanner scanner;
+    private int hiddenNumber;
+    private Player curPlayer;
     private boolean isGameOver;
 
     public GuessNumber(Player player1, Player player2, Scanner scanner) {
@@ -26,8 +26,8 @@ public class GuessNumber {
             checkNumber();
             changePlayer();
         }
-        printPlayerNumber(player1);
-        printPlayerNumber(player2);
+        printPlayerNumbers(player1);
+        printPlayerNumbers(player2);
     }
 
     private void init() {
@@ -45,7 +45,7 @@ public class GuessNumber {
     }
 
     private void checkNumber() {
-        int number = curPlayer.getLastInputNumber();
+        int number = curPlayer.getLastNumber();
         if (number == hiddenNumber) {
             System.out.println("Игрок " + curPlayer.getName() + " угадал число " + hiddenNumber + " c попытки № "
                     + curPlayer.getAttempts());
@@ -66,7 +66,7 @@ public class GuessNumber {
         curPlayer = curPlayer == player1 ? player2 : player1;
     }
 
-    private void printPlayerNumber(Player player) {
+    private void printPlayerNumbers(Player player) {
         System.out.print("Числа введенные игроком " + player.getName() + ": ");
         for (int num : player.getNumbers()) {
             System.out.print(num + " ");

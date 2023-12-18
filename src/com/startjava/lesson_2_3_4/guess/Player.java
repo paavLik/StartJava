@@ -8,20 +8,19 @@ public class Player {
     private final String name;
     private int attempts;
 
-
     public Player(String name) {
         this.name = name;
-    }
-
-    public int getAttempts() {
-        return attempts;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getLastInputNumber() {
+    public int getAttempts() {
+        return attempts;
+    }
+
+    public int getLastNumber() {
         if (attempts == 0) {
             throw new IllegalStateException("Попыток еще не было!");
         }

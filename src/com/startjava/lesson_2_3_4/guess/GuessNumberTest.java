@@ -4,25 +4,24 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
-    private static GuessNumber game;
-
     private static final Scanner scanner = new Scanner(System.in);
+    private static GuessNumber game;
 
     public static void main(String[] args) {
         initGame();
         play();
     }
 
-    private static void play() {
-        do {
-            game.start();
-        } while (isNext());
-    }
-
     private static void initGame() {
         Player player1 = createPlayer(1);
         Player player2 = createPlayer(2);
         game = new GuessNumber(player1, player2, scanner);
+    }
+
+    private static void play() {
+        do {
+            game.start();
+        } while (isNext());
     }
 
     private static Player createPlayer(int serialNumber) {

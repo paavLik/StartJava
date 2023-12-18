@@ -24,7 +24,6 @@ public class Calculator {
             throw new IllegalArgumentException("Ошибка! Неверное кол-во пробелов между символами! Пример ввода: 2 + 2");
         }
         try {
-
             if (Integer.parseInt(expression[0]) < 1 || Integer.parseInt(expression[2]) < 1) {
                 throw new IllegalArgumentException("Ошибка! Необходимо ввести положительное число!");
             }
