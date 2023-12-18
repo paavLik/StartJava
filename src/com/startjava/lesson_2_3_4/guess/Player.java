@@ -32,8 +32,7 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        numbers[attempts] = number;
-        attempts++;
+        numbers[attempts++] = number;
     }
 
     public void clear() {
