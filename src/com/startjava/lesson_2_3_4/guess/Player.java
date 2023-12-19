@@ -4,39 +4,39 @@ import java.util.Arrays;
 
 public class Player {
 
-    private final int[] numbers = new int[GuessNumber.numberAttempts];
+    private final int[] nums = new int[GuessNumber.NUM_ATTEMPTS];
     private final String name;
-    private int attempts;
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
+    }
+
+    public int getAttempt() {
+        return attempt;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAttempts() {
-        return attempts;
+    public void addNum(int num) {
+        nums[attempt++] = num;
     }
 
-    public int getLastNumber() {
-        if (attempts == 0) {
-            throw new IllegalStateException("Попыток еще не было!");
-        }
-        return numbers[attempts - 1];
+    public int getNum(int attempt) {
+        return nums[attempt];
     }
 
-    public int[] getNumbers() {
-        return Arrays.copyOf(numbers, attempts);
-    }
-
-    public void addNumber(int number) {
-        numbers[attempts++] = number;
+    public int[] getNums() {
+        return Arrays.copyOf(nums, attempt);
     }
 
     public void clear() {
-        Arrays.fill(numbers, 0, numbers.length, 0);
-        attempts = 0;
+        Arrays.fill(nums, 0, attempt, 0);
     }
 }
