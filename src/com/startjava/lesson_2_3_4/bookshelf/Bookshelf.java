@@ -1,89 +1,66 @@
 package com.startjava.lesson_2_3_4.bookshelf;
 
+import java.util.Arrays;
+
 class Bookshelf {
-    private int bookCount;
-    private Book[] books;
+    private static final int MAX_BOOKS = 10;
+    private final Book[] books;
+    private int countBook;
 
     public Bookshelf() {
-        bookCount = 0;
-        books = new Book[10];
+        books = new Book[MAX_BOOKS];
     }
 
-    public void addBook(Book book) {
-        if (bookCount == 10) {
+    public Book[] getBooks() {
+        return Arrays.copyOf(books, countBook);
+    }
+
+    public int getCountBook() {
+        return countBook;
+    }
+
+    public int getFreeShelves() {
+        return MAX_BOOKS - countBook;
+    }
+
+    public void add(Book book) {
+        if (countBook == 10) {
             System.out.println("Невозможно добавить книгу. Шкаф полон.");
             return;
         }
 
-        books[bookCount] = book;
-        bookCount++;
+        books[countBook] = book;
+        countBook++;
 
         System.out.println("Книга успешно добавлена.");
     }
 
-    public void findBook(String title) {
-        boolean found = false;
-
-        for (int i = 0; i < bookCount; i++) {
+    public Book find(String title) {
+        for (int i = 0; i < countBook; i++) {
             if (books[i].getTitle().equalsIgnoreCase(title)) {
-                System.out.println("Книга найдена: " + books[i].getInfo());
-                found = true;
-                break;
+                return books[i];
             }
         }
-
-        if (!found) {
-            System.out.println("Книга не найдена.");
-        }
+        return null;
     }
 
-    public void deleteBook(String title) {
-        boolean deleted = false;
-
-        for (int i = 0; i < bookCount; i++) {
+    public void delete(String title) {
+        for (int i = 0; i < countBook; i++) {
             if (books[i].getTitle().equalsIgnoreCase(title)) {
-                System.arraycopy(books, i + 1, books, i, bookCount - i - 1);
-                books[bookCount - 1] = null;
-                bookCount--;
-
+                countBook--;
+                System.arraycopy(books, i + 1, books, i, countBook - i);
+                books[countBook] = null;
                 System.out.println("Книга успешно удалена.");
-                deleted = true;
-                break;
+                return;
             }
         }
-
-        if (!deleted) {
-            System.out.println("Книга не найдена.");
-        }
-    }
-
-    public void displayShelf() {
-        System.out.println("В шкафу книг - " + bookCount + ", свободно полок - " + (10 - bookCount));
-
-        for (int i = 0; i < bookCount; i++) {
-            System.out.println("|" + books[i].getInfo() + "|");
-            System.out.println("|--------------------------------------------|");
-        }
-
-        for (int i = bookCount; i < 10; i++) {
-            System.out.println("|                                            |");
-            System.out.println("|--------------------------------------------|");
-        }
+        System.out.println("Книга не найдена.");
     }
 
     public void clearShelf() {
-        bookCount = 0;
-        books = new Book[10];
-
+        Arrays.fill(books, 0, countBook, null);
+        countBook = 0;
         System.out.println("Шкаф успешно очищен.");
-    }
-
-    public int getBookCount() {
-        return bookCount;
-    }
-
-    public int getFreeShelves() {
-        return 10 - bookCount;
     }
 }
 

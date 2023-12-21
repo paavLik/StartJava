@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.bookshelf;
 import java.util.Scanner;
 
 class Menu {
-    private Bookshelf bookshelf;
+    private final Bookshelf bookshelf;
 
     public Menu() {
         bookshelf = new Bookshelf();
@@ -17,9 +17,9 @@ class Menu {
             scanner.nextLine();
 
             System.out.println();
-            System.out.println("В шкафу книг - " + bookshelf.getBookCount() + ", свободно полок - " + bookshelf.getFreeShelves());
+            System.out.println("В шкафу книг - " + bookshelf.getCountBook() + ", свободно полок - " + bookshelf.getFreeShelves());
 
-            if (bookshelf.getBookCount() == 0) {
+            if (bookshelf.getCountBook() == 0) {
                 System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
             }
 
@@ -73,25 +73,41 @@ class Menu {
         scanner.nextLine();
 
         Book book = new Book(author, title, year);
-        bookshelf.addBook(book);
+        bookshelf.add(book);
     }
 
     public void deleteBook(Scanner scanner) {
         System.out.print("Введите название книги, которую хотите удалить: ");
         String title = scanner.nextLine();
 
-        bookshelf.deleteBook(title);
+        bookshelf.delete(title);
     }
 
     public void findBook(Scanner scanner) {
         System.out.print("Введите название книги, которую хотите найти: ");
         String title = scanner.nextLine();
 
-        bookshelf.findBook(title);
+        Book foundBook = bookshelf.find(title);
+        if (foundBook != null) {
+            System.out.println("Книга найдена: " + foundBook);
+        } else {
+            System.out.println("Книга не найдена.");
+        }
     }
 
     public void displayShelf() {
-        bookshelf.displayShelf();
+        Book[] books = bookshelf.getBooks();
+        System.out.println("В шкафу книг - " + books.length + ", свободно полок - " + (10 - books.length));
+
+        for (Book book : books) {
+            System.out.println("|" + book.toString() + "|");
+            System.out.println("|--------------------------------------------|");
+        }
+
+        for (int i = books.length; i < 10; i++) {
+            System.out.println("|                                            |");
+            System.out.println("|--------------------------------------------|");
+        }
     }
 
     public void clearShelf() {

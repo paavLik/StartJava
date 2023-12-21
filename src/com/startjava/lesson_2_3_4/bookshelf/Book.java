@@ -1,29 +1,22 @@
 package com.startjava.lesson_2_3_4.bookshelf;
 
 class Book {
-    private String author;
-    private String title;
-    private int year;
+    private final String author;
+    private final String title;
+    private final int publicationYear;
 
-    public Book(String author, String title, int year) {
+    public Book(String author, String title, int publicationYear) {
         this.author = author;
         this.title = title;
-        this.year = year;
-    }
-
-    public String getAuthor() {
-        return author;
+        this.publicationYear = publicationYear;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getInfo() {
-        return author + ", " + title + ", " + year;
+    @Override
+    public String toString() {
+        return author + ", " + title + ", " + publicationYear;
     }
 }
