@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.bookshelf;
 import java.util.Arrays;
 
 class Bookshelf {
-    private static final int MAX_BOOKS = 10;
+    public static final int MAX_BOOKS = 10;
     private final Book[] books;
     private int countBook;
 
@@ -63,4 +63,3 @@ class Bookshelf {
         System.out.println("Шкаф успешно очищен.");
     }
 }
-
