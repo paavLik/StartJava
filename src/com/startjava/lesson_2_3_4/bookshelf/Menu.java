@@ -12,23 +12,51 @@ class Menu {
     }
 
     public void start() {
-        boolean continueRunning = true;
-
-        while (continueRunning) {
-            displayShelf();
-            System.out.println("""
-                    Меню:
-                    1. Добавить книгу
-                    2. Удалить книгу
-                    3. Поиск книги
-                    4. Очистить шкаф
-                    5. Завершить
-                    Введите номер операции: """);
-            continueRunning = executeOperation(scanner.nextLine());
+        while (true) {
+            displayBookshelf();
+            showMenu();
+            if (!executeOperation(scanner.nextLine())) {
+                break;
+            }
+            waitForEnter();
         }
     }
 
-    public void addBook() {
+    private void showMenu() {
+        System.out.println("""
+                Меню:
+                1. Добавить книгу
+                2. Удалить книгу
+                3. Поиск книги
+                4. Очистить шкаф
+                5. Завершить
+                Введите номер операции: """);
+    }
+
+    private boolean executeOperation(String choice) {
+        switch (choice) {
+            case "1":
+                addBook();
+                return true;
+            case "2":
+                deleteBook();
+                return true;
+            case "3":
+                findBook();
+                return true;
+            case "4":
+                clearShelf();
+                return true;
+            case "5":
+                System.out.println("Программа завершена.");
+                return false;
+            default:
+                System.out.println("Некорректный выбор. Попробуйте еще раз.");
+                return true;
+        }
+    }
+
+    private void addBook() {
         System.out.print("Введите автора книги: ");
         String author = scanner.nextLine();
 
@@ -36,65 +64,32 @@ class Menu {
 
         System.out.print("Введите год издания книги: ");
         int year = scanner.nextInt();
-        scanner.nextLine(); // Очищаем буфер после ввода числа
+        scanner.nextLine();
 
         bookshelf.add(new Book(author, title, year));
-        waitForEnter();
     }
 
-    public void deleteBook() {
+    private void deleteBook() {
         String title = inputTitle();
         bookshelf.delete(title);
-        waitForEnter();
     }
 
-    public void findBook() {
+    private void findBook() {
         String title = inputTitle();
         Book foundBook = bookshelf.find(title);
         System.out.println(foundBook != null ? "Книга найдена: " + foundBook : "Книга не найдена.");
-        waitForEnter();
     }
 
-    public void clearShelf() {
+    private void clearShelf() {
         bookshelf.clearShelf();
-        waitForEnter();
     }
 
-    private boolean executeOperation(String choice) {
-        return switch (choice) {
-            case "1" -> {
-                addBook();
-                yield true;
-            }
-            case "2" -> {
-                deleteBook();
-                yield true;
-            }
-            case "3" -> {
-                findBook();
-                yield true;
-            }
-            case "4" -> {
-                clearShelf();
-                yield true;
-            }
-            case "5" -> {
-                System.out.println("Программа завершена.");
-                yield false;
-            }
-            default -> {
-                System.out.println("Некорректный выбор. Попробуйте еще раз.");
-                yield true;
-            }
-        };
-    }
-
-    private void displayShelf() {
+    private void displayBookshelf() {
         if (bookshelf.getCountBooks() > 0) {
             System.out.println("В шкафу книг - " + bookshelf.getCountBooks() +
                     ", свободно полок - " + bookshelf.getFreeShelves());
-            for (int i = 0; i < bookshelf.getCountBooks(); i++) {
-                System.out.println("|" + formatBookDisplay(bookshelf.getBooks()[i]) + "|");
+            for (Book book : bookshelf.getBooks()) {
+                System.out.println("|" + formatBookDisplay(book) + "|");
                 System.out.println("|-----------------------------------------------------------|");
             }
         } else {
