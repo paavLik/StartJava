@@ -4,104 +4,101 @@ import java.util.Scanner;
 
 class Menu {
     private final Bookshelf bookshelf;
+    private final Scanner scanner;
 
     public Menu() {
         bookshelf = new Bookshelf();
+        scanner = new Scanner(System.in);
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
         boolean continueRunning = true;
 
         while (continueRunning) {
-            if (bookshelf.getCountBook() > 0) {
-                displayShelf();
-            } else {
-                System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
-            }
-            showMenu();
-            continueRunning = executeOperation(scanner.nextLine(), scanner);
+            displayShelf();
+            System.out.println("""
+                    Меню:
+                    1. Добавить книгу
+                    2. Удалить книгу
+                    3. Поиск книги
+                    4. Очистить шкаф
+                    5. Завершить
+                    Введите номер операции: """);
+            continueRunning = executeOperation(scanner.nextLine());
         }
     }
 
-    private void showMenu() {
-        String menuText = """
-                Меню:
-                1. Добавить книгу
-                2. Удалить книгу
-                3. Поиск книги
-                4. Очистить шкаф
-                5. Завершить
-                Введите номер операции: """;
-        System.out.println(menuText);
-    }
-
-    private boolean executeOperation(String choice, Scanner scanner) {
-        switch (choice) {
-            case "1":
-                addBook(scanner);
-                break;
-            case "2":
-                deleteBook(scanner);
-                break;
-            case "3":
-                findBook(scanner);
-                break;
-            case "4":
-                clearShelf();
-                break;
-            case "5":
-                System.out.println("Программа завершена.");
-                return false;
-            default:
-                System.out.println("Некорректный выбор. Попробуйте еще раз.");
-                break;
-        }
-
-        System.out.print("Для продолжения нажмите Enter");
-        scanner.nextLine();
-        return true;
-    }
-
-
-    private void addBook(Scanner scanner) {
+    public void addBook() {
         System.out.print("Введите автора книги: ");
         String author = scanner.nextLine();
 
-        String title = requestTitle(scanner);
+        String title = inputTitle();
 
         System.out.print("Введите год издания книги: ");
         int year = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Очищаем буфер после ввода числа
 
-        Book book = new Book(author, title, year);
-        bookshelf.add(book);
+        bookshelf.add(new Book(author, title, year));
+        waitForEnter();
     }
 
-    private void deleteBook(Scanner scanner) {
-        String title = requestTitle(scanner);
+    public void deleteBook() {
+        String title = inputTitle();
         bookshelf.delete(title);
+        waitForEnter();
     }
 
-    private void findBook(Scanner scanner) {
-        String title = requestTitle(scanner);
+    public void findBook() {
+        String title = inputTitle();
         Book foundBook = bookshelf.find(title);
-        if (foundBook != null) {
-            System.out.println("Книга найдена: " + foundBook);
-        } else {
-            System.out.println("Книга не найдена.");
-        }
+        System.out.println(foundBook != null ? "Книга найдена: " + foundBook : "Книга не найдена.");
+        waitForEnter();
     }
 
     public void clearShelf() {
         bookshelf.clearShelf();
+        waitForEnter();
+    }
+
+    private boolean executeOperation(String choice) {
+        return switch (choice) {
+            case "1" -> {
+                addBook();
+                yield true;
+            }
+            case "2" -> {
+                deleteBook();
+                yield true;
+            }
+            case "3" -> {
+                findBook();
+                yield true;
+            }
+            case "4" -> {
+                clearShelf();
+                yield true;
+            }
+            case "5" -> {
+                System.out.println("Программа завершена.");
+                yield false;
+            }
+            default -> {
+                System.out.println("Некорректный выбор. Попробуйте еще раз.");
+                yield true;
+            }
+        };
     }
 
     private void displayShelf() {
-        System.out.println("В шкафу книг - " + bookshelf.getCountBook() + ", свободно полок - " + bookshelf.getFreeShelves());
-        for (int i = 0; i < bookshelf.getCountBook(); i++) {
-            System.out.println("|" + formatBookDisplay(bookshelf.getBooks()[i]) + "|");
-            System.out.println("|-----------------------------------------------------------|");
+        if (bookshelf.getCountBooks() > 0) {
+            System.out.println("В шкафу книг - " + bookshelf.getCountBooks() +
+                    ", свободно полок - " + bookshelf.getFreeShelves());
+            for (int i = 0; i < bookshelf.getCountBooks(); i++) {
+                System.out.println("|" + formatBookDisplay(bookshelf.getBooks()[i]) + "|");
+                System.out.println("|-----------------------------------------------------------|");
+            }
+        } else {
+            System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
         }
     }
 
@@ -109,8 +106,13 @@ class Menu {
         return String.format("%-60s", book.toString());
     }
 
-    private String requestTitle(Scanner scanner) {
+    private String inputTitle() {
         System.out.print("Введите название книги: ");
         return scanner.nextLine();
+    }
+
+    private void waitForEnter() {
+        System.out.print("Для продолжения нажмите Enter");
+        scanner.nextLine();
     }
 }
